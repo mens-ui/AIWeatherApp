@@ -9,27 +9,29 @@
 /* Begin PBXBuildFile section */
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
 		DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */; };
-		DDAED0A92C46C67E00A7840F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* ViewController.swift */; };
+		DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* MainViewController.swift */; };
 		DDAED0AB2C46C68000A7840F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAED0AA2C46C68000A7840F /* Assets.xcassets */; };
 		DDAED0AE2C46C68000A7840F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DDAED0AD2C46C68000A7840F /* Base */; };
 		DDAED0B72C46C72400A7840F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B62C46C72400A7840F /* Model.swift */; };
 		DDAED0B92C46C72E00A7840F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B82C46C72E00A7840F /* View.swift */; };
 		DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BC2C46C7BE00A7840F /* MainView.swift */; };
-		DDAED0BF2C46C87F00A7840F /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BE2C46C87F00A7840F /* testViewController.swift */; };
+		DDAED0BF2C46C87F00A7840F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BE2C46C87F00A7840F /* TestViewController.swift */; };
+		DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0C02C46CBCE00A7840F /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAED0A42C46C67E00A7840F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDAED0A82C46C67E00A7840F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDAED0A82C46C67E00A7840F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DDAED0AA2C46C68000A7840F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDAED0AD2C46C68000A7840F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDAED0AF2C46C68000A7840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDAED0B62C46C72400A7840F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DDAED0B82C46C72E00A7840F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DDAED0BC2C46C7BE00A7840F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		DDAED0BE2C46C87F00A7840F /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		DDAED0BE2C46C87F00A7840F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		DDAED0C02C46CBCE00A7840F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +79,9 @@
 		DDAED0B52C46C71000A7840F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DDAED0A82C46C67E00A7840F /* ViewController.swift */,
-				DDAED0BE2C46C87F00A7840F /* testViewController.swift */,
+				DDAED0A82C46C67E00A7840F /* MainViewController.swift */,
+				DDAED0C02C46CBCE00A7840F /* PageViewController.swift */,
+				DDAED0BE2C46C87F00A7840F /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,13 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDAED0A92C46C67E00A7840F /* ViewController.swift in Sources */,
+				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
-				DDAED0BF2C46C87F00A7840F /* testViewController.swift in Sources */,
+				DDAED0BF2C46C87F00A7840F /* TestViewController.swift in Sources */,
 				DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */,
 				DDAED0B92C46C72E00A7840F /* View.swift in Sources */,
 				DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */,
 				DDAED0B72C46C72400A7840F /* Model.swift in Sources */,
+				DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,4 +5,8 @@
 //  Created by 김윤홍 on 7/17/24.
 //
 
-import Foundation
+import UIKit
+
+class MainVIew: UIView {
+
+}
