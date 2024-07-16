@@ -8,12 +8,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+  
+  var mainView: MainView!
+  
+  override func loadView() {
+    self.view = mainView(frame: UIScreen.main.bounds)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    view.backgroundColor = .brown
   }
-    
-
 }
 

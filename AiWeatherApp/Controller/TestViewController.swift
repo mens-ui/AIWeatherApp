@@ -7,7 +7,7 @@
 
 import UIKit
 
-class testViewController: UIViewController {
+class TestViewController: UIViewController {
   override func viewDidLoad() {
     view.backgroundColor = .systemCyan
   }
