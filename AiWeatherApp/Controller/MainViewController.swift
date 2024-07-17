@@ -7,17 +7,19 @@
 
 import UIKit
 
+import Alamofire
+
 class MainViewController: UIViewController {
   
   var mainView: MainView!
   
   override func loadView() {
-    self.view = mainView(frame: UIScreen.main.bounds)
+    self.view = MainView(frame: UIScreen.main.bounds)
   }
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .brown
+    view.backgroundColor = .systemBackground
   }
 }
 
