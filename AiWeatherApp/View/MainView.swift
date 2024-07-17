@@ -7,23 +7,27 @@
 
 import UIKit
 
+import SnapKit
+
 class MainView: UIView {
   
   lazy var weatherLabel: UILabel = {
     let label = UILabel()
-    label.text = "날씨"
+    label.text = "맑음"
+    label.textAlignment = .center
     return label
   }()
   
   lazy var locationLabel: UILabel = {
     let label = UILabel()
-    label.text = "위치"
+    label.text = "서울"
+    label.textAlignment = .center
     return label
   }()
   
   lazy var temperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "온도"
+    label.text = "30º"
     return label
   }()
   
@@ -35,20 +39,29 @@ class MainView: UIView {
   
   lazy var highTemperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "최고 온도"
+    label.text = "최고 온도 30º"
     return label
   }()
   
   lazy var lowTemperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "최저 온도"
+    label.text = "최저 온도 30º"
     return label
   }()
   
   lazy var yellowAir: UILabel = {
     let label = UILabel()
-    label.text = "미세먼지"
+    label.text = "미세먼지 나쁨"
     return label
+  }()
+  
+  lazy var longlong2: UIImageView = {
+    let imageView = UIImageView()
+    imageView.backgroundColor = .gray
+    imageView.clipsToBounds = true
+    imageView.contentMode = .scaleAspectFill
+    imageView.layer.cornerRadius = 50
+    return imageView
   }()
   
   lazy var weekWeather: UITableView = {
@@ -59,14 +72,17 @@ class MainView: UIView {
   
   private lazy var weatherStackView: UIStackView = {
     let stackView = UIStackView()
-    stackView.backgroundColor = .blue
+    stackView.backgroundColor = .systemBackground
     stackView.axis = .vertical
+    stackView.spacing = 10
+    stackView.distribution = .fillProportionally
     return stackView
   }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     configureUI()
+    setConstraints()
   }
   
   required init?(coder: NSCoder) {
@@ -79,6 +95,7 @@ class MainView: UIView {
     [
       weatherLabel,
       locationLabel,
+      longlong2,
       temperatureLabel,
       humidityLabel,
       highTemperatureLabel,
@@ -89,7 +106,34 @@ class MainView: UIView {
   }
   
   func setConstraints() {
-    weatherStackView.
+    weatherStackView.snp.makeConstraints {
+      $0.edges.equalTo(self.safeAreaLayoutGuide).inset(30)
+    }
+    
+    longlong2.snp.makeConstraints {
+      $0.width.height.equalTo(100)
+    }
+    
+    weekWeather.snp.makeConstraints {
+      $0.height.equalTo(300)
+      $0.bottom.leading.trailing.equalToSuperview().inset(10)
+    }
+    
+    longlong2.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview().inset(100)
+    }
+    
+    [
+      weatherLabel,
+      locationLabel,
+      temperatureLabel,
+      humidityLabel,
+      highTemperatureLabel,
+      lowTemperatureLabel,
+      yellowAir
+    ].forEach { $0.snp.makeConstraints {
+      $0.left.equalToSuperview()
+      }}
   }
-  
 }
+
