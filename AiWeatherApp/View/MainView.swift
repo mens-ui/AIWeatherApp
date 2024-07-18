@@ -116,11 +116,8 @@ class MainView: UIView {
     
     weekWeather.snp.makeConstraints {
       $0.height.equalTo(300)
-      $0.bottom.leading.trailing.equalToSuperview().inset(10)
-    }
-    
-    longlong2.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview().inset(100)
+      $0.leading.trailing.equalToSuperview().inset(10)
+      $0.bottom.equalToSuperview().inset(10)
     }
     
     [
@@ -131,9 +128,10 @@ class MainView: UIView {
       highTemperatureLabel,
       lowTemperatureLabel,
       yellowAir
-    ].forEach { $0.snp.makeConstraints {
-      $0.left.equalToSuperview()
-      }}
-  }
-}
+    ].forEach { view in
+      view.snp.makeConstraints {
+        $0.left.equalToSuperview()
+      }
+    }
+  }}
 
