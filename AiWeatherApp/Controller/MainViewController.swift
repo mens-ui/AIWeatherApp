@@ -11,23 +11,6 @@ import Alamofire
 
 class MainViewController: UIViewController {
   
-  struct WeatherResponse: Decodable {
-    let main: Main
-    let weather: [Weather]
-    let name: String
-  }
-  
-  struct Main: Decodable {
-    let temp: Double
-    let humidity: Double
-    let temp_min: Double
-    let temp_max: Double
-  }
-  
-  struct Weather: Decodable {
-    let main: String
-  }
-  
   let myAPIKey = "cec8dc376cea68811d800a55218dbeed"
   let lat = 37.56
   let lon = 126.97
@@ -42,24 +25,20 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
-    mainView?.weatherLabel.text = "더움"
     getData()
   }
   
   func getData() {
-    AF.request("https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(myAPIKey)&units=metric", method: .get).responseDecodable(of: WeatherResponse.self) { response in
-      switch response.result {
-      case .success(let value):
+    NetworkManager.shared.getCurrentData { weatherData in
+      if let weatherData = weatherData {
         DispatchQueue.main.async {
-          if let weather = value.weather.first {
-            print(weather.main)
-            self.mainView.weatherLabel.text = weather.main
-          }
-          self.mainView.locationLabel.text = value.name
-          print(value.main.temp)
+          self.mainView.weatherLabel.text = weatherData.weather.first!.description
+          self.mainView.locationLabel.text = weatherData.name
+          self.mainView.temperatureLabel.text! += String(Int(weatherData.main.temp)) + "ºC"
+          self.mainView.highTemperatureLabel.text! += String(Int(weatherData.main.temp_max)) + "ºC"
+          self.mainView.lowTemperatureLabel.text! += String(Int(weatherData.main.temp_min)) + "ºC"
+          self.mainView.humidityLabel.text! += String(Int(weatherData.main.humidity))
         }
-      case .failure(let error):
-        print(error)
       }
     }
   }
