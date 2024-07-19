@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class MainView: UIView {
-  
   lazy var weatherLabel: UILabel = {
     let label = UILabel()
     label.text = "맑음"
@@ -59,7 +58,7 @@ class MainView: UIView {
     let imageView = UIImageView()
     imageView.backgroundColor = .gray
     imageView.clipsToBounds = true
-    imageView.contentMode = .scaleAspectFill
+    imageView.contentMode = .center
     imageView.layer.cornerRadius = 50
     return imageView
   }()
@@ -112,13 +111,15 @@ class MainView: UIView {
     
     longlong2.snp.makeConstraints {
       $0.width.height.equalTo(100)
+      $0.leading.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(-50)
+      $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(50)
     }
     
     weekWeather.snp.makeConstraints {
       $0.height.equalTo(300)
-      $0.leading.trailing.equalToSuperview().inset(10)
-      $0.bottom.equalToSuperview().inset(10)
+      $0.bottom.leading.trailing.equalToSuperview().inset(10)
     }
+   
     
     [
       weatherLabel,
@@ -128,10 +129,9 @@ class MainView: UIView {
       highTemperatureLabel,
       lowTemperatureLabel,
       yellowAir
-    ].forEach { view in
-      view.snp.makeConstraints {
-        $0.left.equalToSuperview()
-      }
-    }
-  }}
+    ].forEach { $0.snp.makeConstraints {
+      $0.left.equalToSuperview()
+      }}
+  }
+}
 
