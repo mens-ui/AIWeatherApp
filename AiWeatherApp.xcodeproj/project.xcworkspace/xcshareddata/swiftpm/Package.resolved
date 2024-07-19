@@ -1,5 +1,5 @@
 {
-  "originHash" : "2768b15eeebd5474598cf1ae37b191b7219d78404c3191f3a667ea49085a7dc0",
+  "originHash" : "f0a4e03a91dc1a26d356162a48aaf07e6f5c0722a43049cfdfd18025454f5a57",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
         "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "generative-ai-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google-gemini/generative-ai-swift.git",
+      "state" : {
+        "revision" : "54784005b57c2235a7669e0c12e8dafa68f0ca5f",
+        "version" : "0.5.4"
       }
     },
     {
