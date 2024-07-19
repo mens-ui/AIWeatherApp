@@ -10,11 +10,8 @@ import UIKit
 import Alamofire
 
 class MainViewController: UIViewController {
-  
-  let myAPIKey = "cec8dc376cea68811d800a55218dbeed"
-  let lat = 37.56
-  let lon = 126.97
-  let data = Data()
+
+  var data = Data()
   var mainView: MainView!
   
   override func loadView() {
@@ -25,10 +22,11 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
-    getData()
+    getCurrentData()
+    setUpTableView()
   }
   
-  func getData() {
+  func getCurrentData() {
     NetworkManager.shared.getCurrentData { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
@@ -41,5 +39,44 @@ class MainViewController: UIViewController {
         }
       }
     }
+  }
+  
+//  func getWeekData() {
+//    NetworkManager.shared.getWeekData { weatherData in
+//      if let weatherData = weatherData {
+//        DispatchQueue.main.async {
+//        }
+//      }
+//    }
+//  }
+  
+  func setUpTableView() {
+    mainView.weekWeather.dataSource = self
+    mainView.weekWeather.delegate = self
+    mainView.weekWeather.register(TableViewCell.self,
+                                  forCellReuseIdentifier: TableViewCell.identifier)
+    mainView.weekWeather.rowHeight = 40
+  }
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    15
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier,
+                                                   for: indexPath) as? TableViewCell
+    else { return UITableViewCell() }
+    NetworkManager.shared.getWeekData { weatherData in
+      if let weatherData = weatherData {
+        DispatchQueue.main.async {
+          cell.lowTemperature.text = String(Int(weatherData.list[indexPath.row].main.temp_min)) + "ºC"
+          cell.highTemperature.text = String(Int(weatherData.list[indexPath.row].main.temp_max)) + "ºC"
+          cell.highTemperature.text = weatherData.list[indexPath.row].dt_txt
+        }
+      }
+    }
+    return cell
   }
 }
