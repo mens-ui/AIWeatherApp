@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class TableViewCell: UITableViewCell {
+final class WeatherTableViewCell: UITableViewCell {
   static let identifier = "weatherList"
   
   lazy var dayLabel: UILabel = {

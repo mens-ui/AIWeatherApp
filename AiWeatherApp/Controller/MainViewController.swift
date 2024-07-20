@@ -44,8 +44,8 @@ class MainViewController: UIViewController {
   func setUpTableView() {
     mainView.weekWeather.dataSource = self
     mainView.weekWeather.delegate = self
-    mainView.weekWeather.register(TableViewCell.self,
-                                  forCellReuseIdentifier: TableViewCell.identifier)
+    mainView.weekWeather.register(WeatherTableViewCell.self,
+                                  forCellReuseIdentifier: WeatherTableViewCell.identifier)
     mainView.weekWeather.rowHeight = 60
   }
 }
@@ -56,8 +56,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier,
-                                                   for: indexPath) as? TableViewCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier,
+                                                   for: indexPath) as? WeatherTableViewCell
     else { return UITableViewCell() }
     NetworkManager.shared.getWeekData { weatherData in
       if let weatherData = weatherData {

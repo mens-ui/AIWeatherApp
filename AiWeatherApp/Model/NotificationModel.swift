@@ -50,7 +50,6 @@ class NotificationModel: NSObject, UNUserNotificationCenterDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = TimeZone.current
-        let dateString = dateFormatter.string(from: date)
         
         UserDefaults.standard.set(true, forKey: "isNotificationOn")
         UserDefaults.standard.set(dateComponents.hour, forKey: "notificationHour")
