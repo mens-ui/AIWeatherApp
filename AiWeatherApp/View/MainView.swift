@@ -54,7 +54,7 @@ class MainView: UIView {
     return label
   }()
   
-  lazy var longlong2: UIImageView = {
+  let longlong2: UIImageView = {
     let imageView = UIImageView()
     imageView.backgroundColor = .gray
     imageView.clipsToBounds = true
