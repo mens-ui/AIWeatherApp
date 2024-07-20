@@ -30,6 +30,7 @@ class AIView: UIView {
     tableView.layer.borderColor = UIColor.black.cgColor
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 5
+    tableView.rowHeight = UITableView.automaticDimension
     return tableView
   }()
   lazy var button1: AnimationButton = {

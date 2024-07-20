@@ -11,12 +11,13 @@ import CoreData
 
 class AIViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
-  var location = "서울"
-  var currentWeather = "맑음"
-  var selected = ""
+  var location: String = "서울"
+  var currentWeather: String = "맑음"
+  var selected: String = ""
   var aiView: AIView!
   var categories: Categories?
   var aimessages: [String] = []
+  var weatherImageName: String = ""
   
   override func loadView() {
     aiView = AIView(frame: UIScreen.main.bounds)
@@ -25,15 +26,30 @@ class AIViewController: UIViewController, UITableViewDataSource, UITableViewDele
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = .white
-    aiView.button1.addTarget(self, action: #selector(button1tapped), for: .touchUpInside)
-    aiView.button2.addTarget(self, action: #selector(button2tapped), for: .touchUpInside)
-    aiView.button3.addTarget(self, action: #selector(button3tapped), for: .touchUpInside)
+    setupButtonActions()
+    setUpTableView()
+    getCurrentData()
+  }
+  func setupButtonActions() {
+    aiView.button1.addTarget(self, action: #selector(handleButton1Tap), for: .touchUpInside)
+    aiView.button2.addTarget(self, action: #selector(handleButton2Tap), for: .touchUpInside)
+    aiView.button3.addTarget(self, action: #selector(handleButton3Tap), for: .touchUpInside)
+  }
+  func setUpTableView() {
     aiView.aiMessageTableView.dataSource = self
     aiView.aiMessageTableView.delegate = self
     aiView.aiMessageTableView.register(AIMessageTableViewCell.self, forCellReuseIdentifier: "AIMessageTableViewCell")
-    aiView.aiMessageTableView.rowHeight = UITableView.automaticDimension
   }
-  
+  func getCurrentData() {
+    NetworkManager.shared.getCurrentData { weatherData in
+      if let weatherData = weatherData {
+        DispatchQueue.main.async {
+          self.aiView.longlong2.image = UIImage(named: weatherData.weather.first!.main)
+          self.weatherImageName = weatherData.weather.first!.main
+        }
+      }
+    }
+  }
   func answerDecoding(_ data: String, _ selected: String) {
     guard let jsonData = data.data(using: .utf8) else {
       fatalError()
@@ -84,13 +100,13 @@ class AIViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
   }
   
-  @objc func button1tapped() {
+  @objc func handleButton1Tap() {
     buttonTapped(0)
   }
-  @objc func button2tapped() {
+  @objc func handleButton2Tap() {
     buttonTapped(1)
   }
-  @objc func button3tapped() {
+  @objc func handleButton3Tap() {
     buttonTapped(2)
   }
   
@@ -123,7 +139,7 @@ class AIViewController: UIViewController, UITableViewDataSource, UITableViewDele
       return UITableViewCell()
     }
     let aimessage = aimessages[indexPath.row]
-    cell.configureCell(aimessage: aimessage)
+    cell.configureCell(aimessage: aimessage, imageName: weatherImageName)
     
     return cell
   }
