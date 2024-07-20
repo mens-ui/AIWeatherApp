@@ -60,12 +60,13 @@ class MainView: UIView {
     imageView.clipsToBounds = true
     imageView.contentMode = .center
     imageView.layer.cornerRadius = 50
+    imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
   lazy var weekWeather: UITableView = {
     let tableView = UITableView()
-    tableView.backgroundColor = .gray
+    tableView.backgroundColor = .systemBackground
     return tableView
   }()
   

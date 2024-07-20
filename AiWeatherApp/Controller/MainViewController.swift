@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
           self.mainView.weatherLabel.text = weatherData.weather.first!.description
           self.mainView.locationLabel.text = weatherData.name
+          self.mainView.longlong2.image = UIImage(named: weatherData.weather.first!.main)
           self.mainView.temperatureLabel.text! += String(Int(weatherData.main.temp)) + "ºC"
           self.mainView.highTemperatureLabel.text! += String(Int(weatherData.main.temp_max)) + "ºC"
           self.mainView.lowTemperatureLabel.text! += String(Int(weatherData.main.temp_min)) + "ºC"
