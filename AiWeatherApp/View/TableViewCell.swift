@@ -38,7 +38,6 @@ final class TableViewCell: UITableViewCell {
   
   lazy var weatherImage: UIImageView = {
     let imageView = UIImageView()
-    imageView.backgroundColor = .gray
     return imageView
   }()
   
@@ -54,23 +53,23 @@ final class TableViewCell: UITableViewCell {
   
   func configureUI() {
     [
-      dayLabel,
+      timeLabel,
       weatherImage,
       lowTemperature,
-      highTemperature,
-      timeLabel
+      highTemperature
     ].forEach { contentView.addSubview($0) }
   }
   
   func setConstraints() {
-    dayLabel.snp.makeConstraints {
+
+    timeLabel.snp.makeConstraints {
       $0.leading.equalToSuperview().inset(10)
       $0.centerY.equalToSuperview()
     }
     
     weatherImage.snp.makeConstraints {
-      $0.leading.equalTo(dayLabel.snp.trailing).offset(10)
-      $0.width.size.equalTo(20)
+      $0.leading.equalTo(timeLabel.snp.trailing).offset(10)
+      $0.width.size.equalTo(40)
       $0.centerY.equalToSuperview()
     }
     
@@ -81,11 +80,6 @@ final class TableViewCell: UITableViewCell {
     
     highTemperature.snp.makeConstraints {
       $0.leading.equalTo(lowTemperature.snp.trailing).offset(10)
-      $0.centerY.equalToSuperview()
-    }
-    
-    timeLabel.snp.makeConstraints {
-      $0.leading.equalTo(highTemperature.snp.trailing).offset(10)
       $0.centerY.equalToSuperview()
     }
   }

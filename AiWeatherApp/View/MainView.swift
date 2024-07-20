@@ -54,27 +54,49 @@ class MainView: UIView {
     return label
   }()
   
-  lazy var longlong2: UIImageView = {
+  let longlong2: UIImageView = {
     let imageView = UIImageView()
     imageView.backgroundColor = .gray
     imageView.clipsToBounds = true
-    imageView.contentMode = .center
-    imageView.layer.cornerRadius = 50
+    imageView.contentMode = .scaleToFill
+    imageView.layer.cornerRadius = 55
     return imageView
   }()
   
   lazy var weekWeather: UITableView = {
     let tableView = UITableView()
-    tableView.backgroundColor = .gray
+    tableView.backgroundColor = .systemBackground
     return tableView
   }()
   
-  private lazy var weatherStackView: UIStackView = {
+  private lazy var mainStackView: UIStackView = {
     let stackView = UIStackView()
     stackView.backgroundColor = .systemBackground
     stackView.axis = .vertical
     stackView.spacing = 10
-    stackView.distribution = .fillProportionally
+    stackView.distribution = .fillEqually
+    return stackView
+  }()
+  
+  private lazy var weatherStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.spacing = 10
+    stackView.distribution = .fillEqually
+    return stackView
+  }()
+  
+  private lazy var imageView: UIView = {
+    let view = UIView()
+    return view
+  }()
+  
+  private lazy var tempStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.spacing = 10
+    stackView.distribution = .fillEqually
+    stackView.alignment = .center
     return stackView
   }()
   
@@ -89,49 +111,42 @@ class MainView: UIView {
   }
   
   func configureUI() {
-    self.addSubview(weatherStackView)
-    
+    self.addSubview(mainStackView)
+    [weatherStackView, weekWeather].forEach { mainStackView.addArrangedSubview($0) }
+    [imageView, tempStackView].forEach { weatherStackView.addArrangedSubview($0) }
     [
-      weatherLabel,
-      locationLabel,
-      longlong2,
       temperatureLabel,
-      humidityLabel,
       highTemperatureLabel,
       lowTemperatureLabel,
       yellowAir,
-      weekWeather
-    ].forEach { weatherStackView.addArrangedSubview($0)}
+      humidityLabel
+    ].forEach { tempStackView.addArrangedSubview($0) }
+    [weatherLabel, locationLabel, longlong2].forEach { imageView.addSubview($0) }
   }
   
   func setConstraints() {
-    weatherStackView.snp.makeConstraints {
-      $0.edges.equalTo(self.safeAreaLayoutGuide).inset(30)
+    mainStackView.snp.makeConstraints {
+      $0.edges.equalTo(self.safeAreaLayoutGuide).inset(10)
+    }
+    
+    weatherLabel.snp.makeConstraints {
+      $0.top.equalToSuperview().inset(5)
+      $0.centerX.equalToSuperview()
+    }
+    
+    locationLabel.snp.makeConstraints {
+      $0.top.equalTo(weatherLabel.snp.bottom).offset(5)
+      $0.bottom.equalTo(longlong2.snp.top).offset(-5)
+      $0.centerX.equalToSuperview()
     }
     
     longlong2.snp.makeConstraints {
-      $0.width.height.equalTo(100)
-      $0.leading.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(-50)
-      $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(50)
+      $0.top.equalTo(locationLabel.snp.bottom).offset(5)
+      $0.bottom.equalToSuperview().inset(5)
+      $0.width.equalTo(longlong2.snp.height)
+      $0.width.equalTo(110)
+      $0.centerX.equalToSuperview()
     }
-    
-    weekWeather.snp.makeConstraints {
-      $0.height.equalTo(300)
-      $0.bottom.leading.trailing.equalToSuperview().inset(10)
-    }
-   
-    
-    [
-      weatherLabel,
-      locationLabel,
-      temperatureLabel,
-      humidityLabel,
-      highTemperatureLabel,
-      lowTemperatureLabel,
-      yellowAir
-    ].forEach { $0.snp.makeConstraints {
-      $0.left.equalToSuperview()
-      }}
   }
 }
 
