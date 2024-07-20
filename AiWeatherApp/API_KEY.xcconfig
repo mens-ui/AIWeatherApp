@@ -1,0 +1,10 @@
+//
+//  API_KEY.xcconfig
+//  AiWeatherApp
+//
+//  Created by pc on 7/19/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+GEMINI_API_KEY = AIzaSyCpB1K051ov2UlrmCe7CTtEhABaZnqH50U

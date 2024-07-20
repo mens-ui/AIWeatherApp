@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0234862C4A519F00BB08BA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0234852C4A519F00BB08BA /* LoadingView.swift */; };
+		4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB782C47F5A40068C1E5 /* AIView.swift */; };
+		4F49CB7C2C47F5D10068C1E5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */; };
+		4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB7D2C48F7890068C1E5 /* AIModel.swift */; };
+		4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */; };
+		4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */; };
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
 		DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */; };
 		DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* MainViewController.swift */; };
@@ -15,13 +21,19 @@
 		DDAED0B72C46C72400A7840F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B62C46C72400A7840F /* Model.swift */; };
 		DDAED0B92C46C72E00A7840F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B82C46C72E00A7840F /* View.swift */; };
 		DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BC2C46C7BE00A7840F /* MainView.swift */; };
-		DDAED0BF2C46C87F00A7840F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BE2C46C87F00A7840F /* TestViewController.swift */; };
+		DDAED0BF2C46C87F00A7840F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BE2C46C87F00A7840F /* AIViewController.swift */; };
 		DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0C02C46CBCE00A7840F /* PageViewController.swift */; };
 		DDAED0C42C47695900A7840F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDAED0C32C47695900A7840F /* SnapKit */; };
 		DDAED0C72C47697500A7840F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DDAED0C62C47697500A7840F /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F0234852C4A519F00BB08BA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
+		4F49CB782C47F5A40068C1E5 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
+		4F49CB7D2C48F7890068C1E5 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
+		4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaitionButton.swift; sourceTree = "<group>"; };
+		4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIMessageTableViewCell.swift; sourceTree = "<group>"; };
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAED0A42C46C67E00A7840F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +44,7 @@
 		DDAED0B62C46C72400A7840F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DDAED0B82C46C72E00A7840F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DDAED0BC2C46C7BE00A7840F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		DDAED0BE2C46C87F00A7840F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		DDAED0BE2C46C87F00A7840F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		DDAED0C02C46CBCE00A7840F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F49CB7C2C47F5D10068C1E5 /* GoogleGenerativeAI in Frameworks */,
 				DDAED0C42C47695900A7840F /* SnapKit in Frameworks */,
 				DDAED0C72C47697500A7840F /* Alamofire in Frameworks */,
 			);
@@ -70,6 +83,7 @@
 			children = (
 				DDAED0A42C46C67E00A7840F /* AppDelegate.swift */,
 				DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */,
+				4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */,
 				DDAED0BB2C46C73C00A7840F /* Model */,
 				DDAED0BA2C46C73100A7840F /* View */,
 				DDAED0B52C46C71000A7840F /* Controller */,
@@ -85,7 +99,7 @@
 			children = (
 				DDAED0A82C46C67E00A7840F /* MainViewController.swift */,
 				DDAED0C02C46CBCE00A7840F /* PageViewController.swift */,
-				DDAED0BE2C46C87F00A7840F /* TestViewController.swift */,
+				DDAED0BE2C46C87F00A7840F /* AIViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +109,9 @@
 			children = (
 				DDAED0B82C46C72E00A7840F /* View.swift */,
 				DDAED0BC2C46C7BE00A7840F /* MainView.swift */,
+				4F49CB782C47F5A40068C1E5 /* AIView.swift */,
+				4F0234852C4A519F00BB08BA /* LoadingView.swift */,
+				4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				DDAED0B62C46C72400A7840F /* Model.swift */,
+				4F49CB7D2C48F7890068C1E5 /* AIModel.swift */,
+				4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +145,7 @@
 			packageProductDependencies = (
 				DDAED0C32C47695900A7840F /* SnapKit */,
 				DDAED0C62C47697500A7840F /* Alamofire */,
+				4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */,
 			);
 			productName = AiWeatherApp;
 			productReference = DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */;
@@ -158,6 +178,7 @@
 			packageReferences = (
 				DDAED0C22C47695900A7840F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DDAED0C52C47697500A7840F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4F49CB7A2C47F5D10068C1E5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = DDAED0A22C46C67E00A7840F /* Products */;
 			projectDirPath = "";
@@ -186,12 +207,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
+				4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
-				DDAED0BF2C46C87F00A7840F /* TestViewController.swift in Sources */,
+				4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */,
+				4F0234862C4A519F00BB08BA /* LoadingView.swift in Sources */,
+				DDAED0BF2C46C87F00A7840F /* AIViewController.swift in Sources */,
 				DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */,
+				4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */,
 				DDAED0B92C46C72E00A7840F /* View.swift in Sources */,
 				DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */,
 				DDAED0B72C46C72400A7840F /* Model.swift in Sources */,
+				4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */,
 				DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +357,7 @@
 		};
 		DDAED0B32C46C68000A7840F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,6 +385,7 @@
 		};
 		DDAED0B42C46C68000A7840F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,6 +435,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4F49CB7A2C47F5D10068C1E5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
 		DDAED0C22C47695900A7840F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -426,6 +462,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F49CB7A2C47F5D10068C1E5 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
 		DDAED0C32C47695900A7840F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDAED0C22C47695900A7840F /* XCRemoteSwiftPackageReference "SnapKit" */;
