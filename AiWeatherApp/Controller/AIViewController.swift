@@ -11,8 +11,8 @@ import CoreData
 
 class AIViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
-  var location: String = "서울"
-  var currentWeather: String = "맑음"
+  var location: String = ""
+  var currentWeather: String = ""
   var selected: String = ""
   var aiView: AIView!
   var categories: Categories?
@@ -44,6 +44,8 @@ class AIViewController: UIViewController, UITableViewDataSource, UITableViewDele
     NetworkManager.shared.getCurrentData { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
+          self.currentWeather = weatherData.weather.first!.description
+          self.location = weatherData.name
           self.aiView.longlong2.image = UIImage(named: weatherData.weather.first!.main)
           self.weatherImageName = weatherData.weather.first!.main
         }
@@ -122,7 +124,6 @@ class AIViewController: UIViewController, UITableViewDataSource, UITableViewDele
       if var text = response.text {
         text.removeFirst(7)
         text.removeLast(3)
-        print(text)
         answerDecoding(text, selected)
       }
     } catch {
