@@ -9,14 +9,14 @@ import UIKit
 import GoogleGenerativeAI
 import CoreData
 
-class AIViewController: UIViewController {
-
-//  let aimodel = GenerativeModel(name: "gemini-1.5-flash", apiKey: geminiApiKey)
+class AIViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+ 
   var location = "서울"
   var currentWeather = "맑음"
-  var aiView: AIView!
   var selected = ""
+  var aiView: AIView!
   var categories: Categories?
+  var aimessages: [String] = []
   
   override func loadView() {
     aiView = AIView(frame: UIScreen.main.bounds)
@@ -28,6 +28,10 @@ class AIViewController: UIViewController {
     aiView.button1.addTarget(self, action: #selector(button1tapped), for: .touchUpInside)
     aiView.button2.addTarget(self, action: #selector(button2tapped), for: .touchUpInside)
     aiView.button3.addTarget(self, action: #selector(button3tapped), for: .touchUpInside)
+    aiView.aiMessageTableView.dataSource = self
+    aiView.aiMessageTableView.delegate = self
+    aiView.aiMessageTableView.register(AIMessageTableViewCell.self, forCellReuseIdentifier: "AIMessageTableViewCell")
+    aiView.aiMessageTableView.rowHeight = UITableView.automaticDimension
   }
   
   func answerDecoding(_ data: String, _ selected: String) {
@@ -48,21 +52,20 @@ class AIViewController: UIViewController {
     aiView.button3.setTitle("\(selectedCategory[2].name)", for: .normal)
   }
   func aiDescription(_ index: Int) {
+    var message: String? = nil
     switch selected {
     case "culture":
-      if let message = self.categories?.culture[index].description {
-        //업데이트 예정
-      }
+      message = self.categories?.culture[index].description
     case "shopping":
-      if let message = self.categories?.shopping[index].description {
-        //업데이트 예정
-      }
+      message = self.categories?.shopping[index].description
     case "food":
-      if let message = self.categories?.food[index].description {
-        //업데이트 예정
-      }
+      message = self.categories?.food[index].description
     default:
-      print("")
+      print("Unknown category")
+    }
+    if let message = message {
+      aimessages.append(message)
+      aiView.aiMessageTableView.reloadData()
     }
   }
   func buttonTapped(_ num: Int) {
@@ -71,8 +74,8 @@ class AIViewController: UIViewController {
       aiView.loadingView.isLoading = true
       Task {
         await openAIAnswer()
-//        aiView.textView.text += "\n어떤 것에 흥미가 있으신가요?"
-        //업데이트 예정
+        aimessages.append("어떤 것에 흥미가 있으신가요?")
+        aiView.aiMessageTableView.reloadData()
         aiView?.loadingView.isLoading = false
       }
     } else {
@@ -103,9 +106,27 @@ class AIViewController: UIViewController {
       if var text = response.text {
         text.removeFirst(7)
         text.removeLast(3)
+        print(text)
         answerDecoding(text, selected)
       }
     } catch {
     }
   }
+  
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    aimessages.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "AIMessageTableViewCell", for: indexPath) as? AIMessageTableViewCell else {
+      return UITableViewCell()
+    }
+    let aimessage = aimessages[indexPath.row]
+    cell.configureCell(aimessage: aimessage)
+    
+    return cell
+  }
+  
+
 }

@@ -15,7 +15,6 @@ class AnimationButton: UIButton {
       self.animateHighlight()
     }
   }
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.originalTransform = self.transform
