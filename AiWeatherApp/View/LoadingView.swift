@@ -33,13 +33,19 @@ final class LoadingView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    self.addSubview(self.backgroundView)
-    self.addSubview(self.activityIndicatorView)
+    configureUI()
     setConstraints()
   }
   
   required init?(coder: NSCoder) {
     fatalError()
+  }
+  
+  private func configureUI() {
+    [
+      backgroundView,
+      activityIndicatorView
+    ].forEach { self.addSubview($0) }
   }
   
   func setConstraints() {

@@ -24,26 +24,34 @@ class AIView: UIView {
     imageView.layer.cornerRadius = 80
     return imageView
   }()
-  let textView: UITextView = {
-    let textView = UITextView()
-    textView.text = "오늘의 서울 날씨는 맑음 입니다. 어떤 것을 하고싶으신가요?"
-    textView.layer.borderColor = UIColor.black.cgColor
-    textView.layer.borderWidth = 1
-    textView.layer.cornerRadius = 5
-    return textView
+//  let textView: UITextView = {
+//    let textView = UITextView()
+//    textView.text = "오늘의 서울 날씨는 맑음 입니다. 어떤 것을 하고싶으신가요?"
+//    textView.layer.borderColor = UIColor.black.cgColor
+//    textView.layer.borderWidth = 1
+//    textView.layer.cornerRadius = 5
+//    return textView
+//  }()
+  let aiMessageTableView: UITableView = {
+    let tableView = UITableView()
+    tableView.rowHeight = 60
+    tableView.layer.borderColor = UIColor.black.cgColor
+    tableView.layer.borderWidth = 1
+    tableView.layer.cornerRadius = 5
+    return tableView
   }()
-  lazy var button1: UIButton = {
-    let button = UIButton()
+  lazy var button1: AnimationButton = {
+    let button = AnimationButton()
     button.setTitle("Culture", for:.normal)
     return button
   }()
-  lazy var button2: UIButton = {
-    let button = UIButton()
+  lazy var button2: AnimationButton = {
+    let button = AnimationButton()
     button.setTitle("Shopping", for:.normal)
     return button
   }()
-  lazy var button3: UIButton = {
-    let button = UIButton()
+  lazy var button3: AnimationButton = {
+    let button = AnimationButton()
     button.setTitle("Food", for:.normal)
     return button
   }()
@@ -70,7 +78,7 @@ class AIView: UIView {
   func configureUI() {
     [ 
       longlong2,
-      textView,
+      aiMessageTableView,
       buttonStackView,
       loadingView
     ].forEach { self.addSubview($0)}
@@ -92,20 +100,20 @@ class AIView: UIView {
       $0.centerX.equalToSuperview()
       $0.height.width.equalTo(160)
     }
-    textView.snp.makeConstraints {
+    aiMessageTableView.snp.makeConstraints {
       $0.top.equalTo(longlong2.snp.bottom).offset(50)
       $0.centerX.equalToSuperview()
       $0.width.equalTo(300)
       $0.height.equalTo(450)
     }
     loadingView.snp.makeConstraints {
-      $0.top.equalTo(textView.snp.top)
-      $0.bottom.equalTo(textView.snp.bottom)
-      $0.leading.equalTo(textView.snp.leading)
-      $0.trailing.equalTo(textView.snp.trailing)
+      $0.top.equalTo(aiMessageTableView.snp.top)
+      $0.bottom.equalTo(aiMessageTableView.snp.bottom)
+      $0.leading.equalTo(aiMessageTableView.snp.leading)
+      $0.trailing.equalTo(aiMessageTableView.snp.trailing)
     }
     buttonStackView.snp.makeConstraints {
-      $0.bottom.equalTo(textView.snp.bottom)
+      $0.bottom.equalTo(aiMessageTableView.snp.bottom)
       $0.centerX.equalToSuperview()
       $0.width.equalTo(300)
       $0.height.equalTo(120)

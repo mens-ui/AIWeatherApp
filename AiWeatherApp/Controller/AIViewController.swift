@@ -51,15 +51,15 @@ class AIViewController: UIViewController {
     switch selected {
     case "culture":
       if let message = self.categories?.culture[index].description {
-        aiView.textView.text += "\n\(message)"
+        //업데이트 예정
       }
     case "shopping":
       if let message = self.categories?.shopping[index].description {
-        aiView.textView.text += "\n\(message)"
+        //업데이트 예정
       }
     case "food":
       if let message = self.categories?.food[index].description {
-        aiView.textView.text += "\n\(message)"
+        //업데이트 예정
       }
     default:
       print("")
@@ -71,7 +71,8 @@ class AIViewController: UIViewController {
       aiView.loadingView.isLoading = true
       Task {
         await openAIAnswer()
-        aiView.textView.text += "\n어떤 것에 흥미가 있으신가요?"
+//        aiView.textView.text += "\n어떤 것에 흥미가 있으신가요?"
+        //업데이트 예정
         aiView?.loadingView.isLoading = false
       }
     } else {
