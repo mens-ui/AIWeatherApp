@@ -10,8 +10,7 @@ import UIKit
 import Alamofire
 
 class MainViewController: UIViewController {
-
-  var data = Data()
+  
   var mainView: MainView!
   
   override func loadView() {
@@ -34,8 +33,8 @@ class MainViewController: UIViewController {
           self.mainView.locationLabel.text = weatherData.name
           self.mainView.longlong2.image = UIImage(named: weatherData.weather.first!.main)
           self.mainView.temperatureLabel.text! += String(Int(weatherData.main.temp)) + "ºC"
-          self.mainView.highTemperatureLabel.text! += String(Int(weatherData.main.temp_max)) + "ºC"
-          self.mainView.lowTemperatureLabel.text! += String(Int(weatherData.main.temp_min)) + "ºC"
+          self.mainView.highTemperatureLabel.text! += changeFormat.shared.changeString(weatherData.main.temp_max)! + "ºC"
+          self.mainView.lowTemperatureLabel.text! += changeFormat.shared.changeString(weatherData.main.temp_min)! + "ºC"
           self.mainView.humidityLabel.text! += String(Int(weatherData.main.humidity))
         }
       }
@@ -47,7 +46,7 @@ class MainViewController: UIViewController {
     mainView.weekWeather.delegate = self
     mainView.weekWeather.register(TableViewCell.self,
                                   forCellReuseIdentifier: TableViewCell.identifier)
-    mainView.weekWeather.rowHeight = 40
+    mainView.weekWeather.rowHeight = 60
   }
 }
 
@@ -63,9 +62,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     NetworkManager.shared.getWeekData { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
-          cell.lowTemperature.text = String(Int(weatherData.list[indexPath.row].main.temp_min)) + "ºC"
-          cell.highTemperature.text = String(Int(weatherData.list[indexPath.row].main.temp_max)) + "ºC"
-          cell.highTemperature.text = weatherData.list[indexPath.row].dt_txt
+          cell.lowTemperature.text = "최저 " + changeFormat.shared.changeString(weatherData.list[indexPath.row].main.temp_min)! + "ºC"
+          cell.highTemperature.text = "최고 " + changeFormat.shared.changeString(weatherData.list[indexPath.row].main.temp_max)! + "ºC"
+          if let day = changeFormat.shared.extractDayAndTime(from: weatherData.list[indexPath.row].dt_txt) {
+            cell.timeLabel.text = day
+          }
+        }
+      }
+    }
+    NetworkManager.shared.getIcon { weatherData in
+      if let weatherData = weatherData {
+        DispatchQueue.main.async {
+          cell.weatherImage.image = weatherData
         }
       }
     }

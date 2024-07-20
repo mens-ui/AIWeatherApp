@@ -11,9 +11,10 @@
 		4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB782C47F5A40068C1E5 /* AIView.swift */; };
 		4F49CB7C2C47F5D10068C1E5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */; };
 		4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB7D2C48F7890068C1E5 /* AIModel.swift */; };
-		DD2DE30F2C4AF51700DEBF7D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */; };
 		4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */; };
 		4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */; };
+		DD2DE30F2C4AF51700DEBF7D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */; };
+		DD2DE3112C4BFA0400DEBF7D /* changeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DE3102C4BFA0400DEBF7D /* changeFormat.swift */; };
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
 		DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */; };
 		DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* MainViewController.swift */; };
@@ -33,9 +34,10 @@
 		4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
 		4F49CB782C47F5A40068C1E5 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 		4F49CB7D2C48F7890068C1E5 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
-		DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaitionButton.swift; sourceTree = "<group>"; };
 		4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIMessageTableViewCell.swift; sourceTree = "<group>"; };
+		DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DD2DE3102C4BFA0400DEBF7D /* changeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeFormat.swift; sourceTree = "<group>"; };
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAED0A42C46C67E00A7840F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				4F49CB782C47F5A40068C1E5 /* AIView.swift */,
 				4F0234852C4A519F00BB08BA /* LoadingView.swift */,
 				4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */,
+				DD2DE3102C4BFA0400DEBF7D /* changeFormat.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				DD2DE30F2C4AF51700DEBF7D /* NetworkManager.swift in Sources */,
 				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
+				DD2DE3112C4BFA0400DEBF7D /* changeFormat.swift in Sources */,
 				4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
 				4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */,
