@@ -11,6 +11,7 @@
 		4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB782C47F5A40068C1E5 /* AIView.swift */; };
 		4F49CB7C2C47F5D10068C1E5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */; };
 		4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB7D2C48F7890068C1E5 /* AIModel.swift */; };
+		DD2DE30F2C4AF51700DEBF7D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */; };
 		4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */; };
 		4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */; };
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
@@ -19,7 +20,7 @@
 		DDAED0AB2C46C68000A7840F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAED0AA2C46C68000A7840F /* Assets.xcassets */; };
 		DDAED0AE2C46C68000A7840F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DDAED0AD2C46C68000A7840F /* Base */; };
 		DDAED0B72C46C72400A7840F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B62C46C72400A7840F /* Model.swift */; };
-		DDAED0B92C46C72E00A7840F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B82C46C72E00A7840F /* View.swift */; };
+		DDAED0B92C46C72E00A7840F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0B82C46C72E00A7840F /* TableViewCell.swift */; };
 		DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BC2C46C7BE00A7840F /* MainView.swift */; };
 		DDAED0BF2C46C87F00A7840F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0BE2C46C87F00A7840F /* AIViewController.swift */; };
 		DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0C02C46CBCE00A7840F /* PageViewController.swift */; };
@@ -32,6 +33,7 @@
 		4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
 		4F49CB782C47F5A40068C1E5 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 		4F49CB7D2C48F7890068C1E5 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
+		DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaitionButton.swift; sourceTree = "<group>"; };
 		4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIMessageTableViewCell.swift; sourceTree = "<group>"; };
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +44,7 @@
 		DDAED0AD2C46C68000A7840F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDAED0AF2C46C68000A7840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDAED0B62C46C72400A7840F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		DDAED0B82C46C72E00A7840F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DDAED0B82C46C72E00A7840F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DDAED0BC2C46C7BE00A7840F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DDAED0BE2C46C87F00A7840F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		DDAED0C02C46CBCE00A7840F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		DDAED0BA2C46C73100A7840F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DDAED0B82C46C72E00A7840F /* View.swift */,
+				DDAED0B82C46C72E00A7840F /* TableViewCell.swift */,
 				DDAED0BC2C46C7BE00A7840F /* MainView.swift */,
 				4F49CB782C47F5A40068C1E5 /* AIView.swift */,
 				4F0234852C4A519F00BB08BA /* LoadingView.swift */,
@@ -121,6 +123,7 @@
 			children = (
 				DDAED0B62C46C72400A7840F /* Model.swift */,
 				4F49CB7D2C48F7890068C1E5 /* AIModel.swift */,
+				DD2DE30E2C4AF51700DEBF7D /* NetworkManager.swift */,
 				4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */,
 			);
 			path = Model;
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2DE30F2C4AF51700DEBF7D /* NetworkManager.swift in Sources */,
 				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
 				4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
@@ -214,7 +218,7 @@
 				DDAED0BF2C46C87F00A7840F /* AIViewController.swift in Sources */,
 				DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */,
 				4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */,
-				DDAED0B92C46C72E00A7840F /* View.swift in Sources */,
+				DDAED0B92C46C72E00A7840F /* TableViewCell.swift in Sources */,
 				DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */,
 				DDAED0B72C46C72400A7840F /* Model.swift in Sources */,
 				4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */,

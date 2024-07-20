@@ -26,25 +26,25 @@ class MainView: UIView {
   
   lazy var temperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "30º"
+    label.text = "현재 온도: "
     return label
   }()
   
   lazy var humidityLabel: UILabel = {
     let label = UILabel()
-    label.text = "습도"
+    label.text = "습도: "
     return label
   }()
   
   lazy var highTemperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "최고 온도 30º"
+    label.text = "최고 온도: "
     return label
   }()
   
   lazy var lowTemperatureLabel: UILabel = {
     let label = UILabel()
-    label.text = "최저 온도 30º"
+    label.text = "최저 온도: "
     return label
   }()
   
