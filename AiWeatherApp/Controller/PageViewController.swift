@@ -9,7 +9,7 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate {
   
-  private lazy var controllerArray = [MainViewController(), TestViewController()]
+  private lazy var controllerArray = [MainViewController(), AIViewController()]
   
   override func viewDidLoad() {
     super.viewDidLoad()
