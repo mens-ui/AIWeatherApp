@@ -11,6 +11,7 @@ import CoreLocation
 class LocationModel: NSObject, CLLocationManagerDelegate {
   static let shared = LocationModel()
   private let locationManager = CLLocationManager()
+  var locationUpdateHandler: (() -> Void)?
   
   override init() {
     super.init()
@@ -22,7 +23,22 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
   }
   
   func requestLocation() {
-    locationManager.requestLocation()
+    if CLLocationManager.locationServicesEnabled() {
+      locationManager.requestLocation()
+    } else {
+      print("위치 서비스가 비활성화되어 있습니다.")
+    }
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    switch status {
+    case .authorizedWhenInUse, .authorizedAlways:
+      requestLocation()
+    case .denied, .restricted:
+      print("위치 권한이 거부되었습니다.")
+    default:
+      break
+    }
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -35,6 +51,9 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
       UserDefaults.standard.setValue(longitude, forKey: "longitude")
       
       print("위도: \(latitude), 경도: \(longitude)")
+      
+      // 위치 업데이트 핸들러 호출
+      locationUpdateHandler?()
     }
   }
   

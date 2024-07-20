@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 import Alamofire
 
@@ -22,9 +23,19 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
     
+    // 위치 업데이트 핸들러 설정
+    LocationModel.shared.locationUpdateHandler = { [weak self] in
+      self?.getCurrentData()
+    }
+    
     requestPermissions()
-    getCurrentData()
     setUpTableView()
+    
+    // 초기 위치 데이터 요청
+    let locationManager = CLLocationManager()
+    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+      LocationModel.shared.requestLocation()
+    }
   }
   
   func requestPermissions() {

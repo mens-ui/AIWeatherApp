@@ -11,7 +11,6 @@ import UIKit
 class NetworkManager {
   
   static let shared = NetworkManager()
-  let location = Data()
   
   func getCurrentData(latitude: Double, longitude: Double, _ completion: @escaping (CurrentWeatherResult?) -> Void) {
     guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_WEATHER_API_KEY") as? String else { return }
