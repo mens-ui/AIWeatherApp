@@ -40,8 +40,21 @@ class NotificationModel: NSObject, UNUserNotificationCenterDelegate {
         print("Notification scheduling error: \(error)")
       } else {
         print("Notification scheduled for: hour: \(dateComponents.hour ?? 0) minute: \(dateComponents.minute ?? 0)")
+        
+        // 시간과 분 정보를 저장
         UserDefaults.standard.setValue(true, forKey: "isNotificationOn")
-        UserDefaults.standard.setValue(date, forKey: "notificationTime")
+        UserDefaults.standard.setValue(dateComponents.hour, forKey: "notificationHour")
+        UserDefaults.standard.setValue(dateComponents.minute, forKey: "notificationMinute")
+        
+        // 사용자 시간대로 날짜를 문자열로 변환하여 저장
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = TimeZone.current
+        let dateString = dateFormatter.string(from: date)
+        
+        UserDefaults.standard.set(true, forKey: "isNotificationOn")
+        UserDefaults.standard.set(dateComponents.hour, forKey: "notificationHour")
+        UserDefaults.standard.set(dateComponents.minute, forKey: "notificationMinute")
       }
     }
   }
@@ -49,7 +62,8 @@ class NotificationModel: NSObject, UNUserNotificationCenterDelegate {
   func cancelNotification() {
     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyNotification"])
     UserDefaults.standard.setValue(false, forKey: "isNotificationOn")
-    UserDefaults.standard.removeObject(forKey: "notificationTime")
+    UserDefaults.standard.removeObject(forKey: "notificationHour")
+    UserDefaults.standard.removeObject(forKey: "notificationMinute")
   }
   
   // Foreground 알림 처리

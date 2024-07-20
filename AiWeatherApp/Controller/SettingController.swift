@@ -54,14 +54,18 @@ class SettingController: UIViewController {
       // 설정 저장 로직 추가
       if self.settingView.notificationSwitch.isOn {
         NotificationModel.shared.scheduleNotification(at: selectedTime)
+        
         // 설정한 시간 디버그 출력
-        print("설정된 시간: \(selectedTime)")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
+        let timeString = dateFormatter.string(from: selectedTime)
+        print("설정된 시간: \(timeString)")
         
         // 저장 확인 알림
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH시 mm분"
-        let timeString = dateFormatter.string(from: selectedTime)
-        let confirmationAlert = UIAlertController(title: nil, message: "매일 \(timeString)에 알림이 설정되었습니다.", preferredStyle: .alert)
+        let confirmationTimeString = dateFormatter.string(from: selectedTime)
+        let confirmationAlert = UIAlertController(title: nil, message: "매일 \(confirmationTimeString)에 알림이 설정되었습니다.", preferredStyle: .alert)
         confirmationAlert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
           // 페이지뷰 컨트롤러로 돌아가기
           self.navigationController?.popViewController(animated: true)
@@ -81,8 +85,17 @@ class SettingController: UIViewController {
   private func loadSettings() {
     let isNotificationOn = UserDefaults.standard.bool(forKey: "isNotificationOn")
     settingView.notificationSwitch.isOn = isNotificationOn
-    if let notificationTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date {
-      settingView.timePicker.date = notificationTime
+    if isNotificationOn {
+      let hour = UserDefaults.standard.integer(forKey: "notificationHour")
+      let minute = UserDefaults.standard.integer(forKey: "notificationMinute")
+      
+      var dateComponents = DateComponents()
+      dateComponents.hour = hour
+      dateComponents.minute = minute
+      let calendar = Calendar.current
+      if let notificationTime = calendar.date(from: dateComponents) {
+        settingView.timePicker.date = notificationTime
+      }
     }
   }
 }
