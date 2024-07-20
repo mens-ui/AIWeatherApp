@@ -55,12 +55,13 @@ class MainView: UIView {
     return label
   }()
   
-  lazy var longlong2: UIImageView = {
+  let longlong2: UIImageView = {
     let imageView = UIImageView()
     imageView.backgroundColor = .gray
     imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFill
     imageView.layer.cornerRadius = 50
+    imageView.layer.masksToBounds = true
     return imageView
   }()
   
@@ -92,6 +93,7 @@ class MainView: UIView {
   func configureUI() {
     self.addSubview(weatherStackView)
     
+    
     [
       weatherLabel,
       locationLabel,
@@ -108,10 +110,13 @@ class MainView: UIView {
   func setConstraints() {
     weatherStackView.snp.makeConstraints {
       $0.edges.equalTo(self.safeAreaLayoutGuide).inset(30)
+//      $0.edges.equalToSuperview().inset(30)
     }
     
     longlong2.snp.makeConstraints {
       $0.width.height.equalTo(100)
+      $0.leading.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(-50)
+      $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.centerX).offset(50)
     }
     
     weekWeather.snp.makeConstraints {
@@ -119,9 +124,9 @@ class MainView: UIView {
       $0.bottom.leading.trailing.equalToSuperview().inset(10)
     }
     
-    longlong2.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview().inset(100)
-    }
+//    longlong2.snp.makeConstraints {
+//      $0.leading.trailing.equalToSuperview().inset(100)
+//    }
     
     [
       weatherLabel,

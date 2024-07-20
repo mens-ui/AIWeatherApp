@@ -6,13 +6,22 @@
 //
 
 import UIKit
-import CoreLocation
 
 import SnapKit
 
 class SettingView: UIView {
   
+  let notificationLabel: UILabel = {
+    let label = UILabel()
+    label.text = "알림"
+    return label
+  }()
   let notificationSwitch = UISwitch()
+  let timePickerLabel: UILabel = {
+    let label = UILabel()
+    label.text = "시간 설정"
+    return label
+  }()
   let timePicker: UIDatePicker = {
     let timePicker = UIDatePicker()
     timePicker.datePickerMode = .time
@@ -20,13 +29,28 @@ class SettingView: UIView {
   }()
   let locationButton: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("위치", for: .normal)
+    button.setTitle("위치 권한 설정", for: .normal)
     return button
   }()
-  let saveButton: UIButton = {
-    let button = UIButton(type: .system)
-    button.setTitle("저장", for: .normal)
-    return button
+  
+  let notificationStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = 10
+    return stackView
+  }()
+  let timePickerStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = 10
+    return stackView
+  }()
+  let mainStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.spacing = 50
+    stackView.alignment = .center
+    return stackView
   }()
   
   override init(frame: CGRect) {
@@ -39,33 +63,31 @@ class SettingView: UIView {
   }
   
   private func configureUI() {
-    backgroundColor = .white
+    backgroundColor = .systemBackground
     
     [
-      notificationSwitch,
-      timePicker,
-      locationButton,
-      saveButton
+      notificationLabel,
+      notificationSwitch
+    ].forEach { notificationStackView.addArrangedSubview($0) }
+    
+    [
+      timePickerLabel,
+      timePicker
+    ].forEach { timePickerStackView.addArrangedSubview($0) }
+    
+    [
+      notificationStackView,
+      timePickerStackView,
+      locationButton
+    ].forEach { mainStackView.addArrangedSubview($0) }
+    
+    [
+      mainStackView
     ].forEach { self.addSubview($0) }
     
-    notificationSwitch.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(100)
-      $0.centerX.equalToSuperview()
-    }
-    
-    timePicker.snp.makeConstraints {
-      $0.top.equalTo(notificationSwitch.snp.bottom).offset(20)
-      $0.centerX.equalToSuperview()
-    }
-    
-    locationButton.snp.makeConstraints {
-      $0.top.equalTo(timePicker.snp.bottom).offset(20)
-      $0.centerX.equalToSuperview()
-    }
-    
-    saveButton.snp.makeConstraints {
-      $0.top.equalTo(locationButton.snp.bottom).offset(20)
-      $0.centerX.equalToSuperview()
+    mainStackView.snp.makeConstraints {
+      $0.top.equalToSuperview().offset(200)
+      $0.leading.trailing.equalToSuperview().inset(20)
     }
   }
 }

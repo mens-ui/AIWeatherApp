@@ -18,28 +18,58 @@ class SettingController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupNavigationBar()
     
     // 알림 권한 요청
-//    NotificationModel
+    NotificationModel.shared.requestAuthorization { granted in
+      if !granted {
+        print("알림 권한이 거부되었습니다.")
+      }
+    }
     
     // 위치 권한 요청
     LocationModel.shared.requestAuthorization()
     
     // Target 설정
     settingView.locationButton.addTarget(self, action: #selector(getLocation), for: .touchUpInside)
-    settingView.saveButton.addTarget(self, action: #selector(saveSettings), for: .touchUpInside)
+    
+    // 설정값 불러오기
+    loadSettings()
+  }
+  
+  private func setupNavigationBar() {
+    self.title = "설정"
+    let applyButton = UIBarButtonItem(title: "적용", style: .plain, target: self, action: #selector(applyButtonTapped))
+    navigationItem.rightBarButtonItem = applyButton
   }
   
   @objc func getLocation() {
     LocationModel.shared.requestLocation()
   }
   
-  @objc func saveSettings() {
+  @objc func applyButtonTapped() {
+    let selectedTime = settingView.timePicker.date
     let alertController = UIAlertController(title: nil, message: "저장하시겠습니까?", preferredStyle: .alert)
     let yesAction = UIAlertAction(title: "네", style: .default) { _ in
       // 설정 저장 로직 추가
       if self.settingView.notificationSwitch.isOn {
-//        notificationmod
+        NotificationModel.shared.scheduleNotification(at: selectedTime)
+        // 설정한 시간 디버그 출력
+        print("설정된 시간: \(selectedTime)")
+        
+        // 저장 확인 알림
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH시 mm분"
+        let timeString = dateFormatter.string(from: selectedTime)
+        let confirmationAlert = UIAlertController(title: nil, message: "매일 \(timeString)에 알림이 설정되었습니다.", preferredStyle: .alert)
+        confirmationAlert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+          // 페이지뷰 컨트롤러로 돌아가기
+          self.navigationController?.popViewController(animated: true)
+        })
+        self.present(confirmationAlert, animated: true, completion: nil)
+      } else {
+        NotificationModel.shared.cancelNotification()
+        self.navigationController?.popViewController(animated: true)
       }
     }
     let noAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
@@ -48,4 +78,11 @@ class SettingController: UIViewController {
     present(alertController, animated: true, completion: nil)
   }
   
+  private func loadSettings() {
+    let isNotificationOn = UserDefaults.standard.bool(forKey: "isNotificationOn")
+    settingView.notificationSwitch.isOn = isNotificationOn
+    if let notificationTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date {
+      settingView.timePicker.date = notificationTime
+    }
+  }
 }

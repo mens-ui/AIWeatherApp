@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		764DFBAA2C47C55600DC1AA2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DFBA92C47C55600DC1AA2 /* SettingView.swift */; };
+		764DFBAC2C47C56300DC1AA2 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DFBAB2C47C56300DC1AA2 /* SettingController.swift */; };
+		764DFBAE2C47C7C400DC1AA2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DFBAD2C47C7C400DC1AA2 /* NotificationModel.swift */; };
+		764DFBB02C47C7D300DC1AA2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DFBAF2C47C7D300DC1AA2 /* LocationModel.swift */; };
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
 		DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */; };
 		DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* MainViewController.swift */; };
@@ -21,14 +25,31 @@
 		DDAED0C72C47697500A7840F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DDAED0C62C47697500A7840F /* Alamofire */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		764DFBCC2C47F21F00DC1AA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		764DFBA92C47C55600DC1AA2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		764DFBAB2C47C56300DC1AA2 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		764DFBAD2C47C7C400DC1AA2 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		764DFBAF2C47C7D300DC1AA2 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAED0A42C46C67E00A7840F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A82C46C67E00A7840F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DDAED0AA2C46C68000A7840F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDAED0AD2C46C68000A7840F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DDAED0AF2C46C68000A7840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDAED0AF2C46C68000A7840F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = AiWeatherApp/Info.plist; sourceTree = SOURCE_ROOT; };
 		DDAED0B62C46C72400A7840F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DDAED0B82C46C72E00A7840F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DDAED0BC2C46C7BE00A7840F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -86,6 +107,7 @@
 				DDAED0A82C46C67E00A7840F /* MainViewController.swift */,
 				DDAED0C02C46CBCE00A7840F /* PageViewController.swift */,
 				DDAED0BE2C46C87F00A7840F /* TestViewController.swift */,
+				764DFBAB2C47C56300DC1AA2 /* SettingController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +117,7 @@
 			children = (
 				DDAED0B82C46C72E00A7840F /* View.swift */,
 				DDAED0BC2C46C7BE00A7840F /* MainView.swift */,
+				764DFBA92C47C55600DC1AA2 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				DDAED0B62C46C72400A7840F /* Model.swift */,
+				764DFBAD2C47C7C400DC1AA2 /* NotificationModel.swift */,
+				764DFBAF2C47C7D300DC1AA2 /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +142,7 @@
 				DDAED09D2C46C67E00A7840F /* Sources */,
 				DDAED09E2C46C67E00A7840F /* Frameworks */,
 				DDAED09F2C46C67E00A7840F /* Resources */,
+				764DFBCC2C47F21F00DC1AA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,13 +211,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764DFBAC2C47C56300DC1AA2 /* SettingController.swift in Sources */,
 				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
 				DDAED0BF2C46C87F00A7840F /* TestViewController.swift in Sources */,
+				764DFBB02C47C7D300DC1AA2 /* LocationModel.swift in Sources */,
+				764DFBAA2C47C55600DC1AA2 /* SettingView.swift in Sources */,
 				DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */,
 				DDAED0B92C46C72E00A7840F /* View.swift in Sources */,
 				DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */,
 				DDAED0B72C46C72400A7840F /* Model.swift in Sources */,
+				764DFBAE2C47C7C400DC1AA2 /* NotificationModel.swift in Sources */,
 				DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,9 +366,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4LTNHNC3S6;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AiWeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치에 따른 날씨 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -348,7 +380,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AiWeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donghyeon.AiWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -363,9 +395,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4LTNHNC3S6;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AiWeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치에 따른 날씨 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -375,7 +409,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.AiWeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donghyeon.AiWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

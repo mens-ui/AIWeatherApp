@@ -15,7 +15,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate {
     super.viewDidLoad()
     self.delegate = self
     self.dataSource = self
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButtonTapped))
     self.setViewControllers([controllerArray[0]], direction: .forward, animated: true)
+  }
+  
+  @objc private func settingButtonTapped() {
+    let settingController = SettingController()
+    self.navigationController?.pushViewController(settingController, animated: true)
   }
 }
 
