@@ -11,6 +11,8 @@
 		4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB782C47F5A40068C1E5 /* AIView.swift */; };
 		4F49CB7C2C47F5D10068C1E5 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F49CB7B2C47F5D10068C1E5 /* GoogleGenerativeAI */; };
 		4F49CB7E2C48F7890068C1E5 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49CB7D2C48F7890068C1E5 /* AIModel.swift */; };
+		4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */; };
+		4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */; };
 		DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A42C46C67E00A7840F /* AppDelegate.swift */; };
 		DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */; };
 		DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAED0A82C46C67E00A7840F /* MainViewController.swift */; };
@@ -30,6 +32,8 @@
 		4F0234892C4A81EA00BB08BA /* API_KEY.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
 		4F49CB782C47F5A40068C1E5 /* AIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIView.swift; sourceTree = "<group>"; };
 		4F49CB7D2C48F7890068C1E5 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
+		4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaitionButton.swift; sourceTree = "<group>"; };
+		4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIMessageTableViewCell.swift; sourceTree = "<group>"; };
 		DDAED0A12C46C67E00A7840F /* AiWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAED0A42C46C67E00A7840F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAED0A62C46C67E00A7840F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				DDAED0BC2C46C7BE00A7840F /* MainView.swift */,
 				4F49CB782C47F5A40068C1E5 /* AIView.swift */,
 				4F0234852C4A519F00BB08BA /* LoadingView.swift */,
+				4FF649012C4B730C0024A611 /* AIMessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			children = (
 				DDAED0B62C46C72400A7840F /* Model.swift */,
 				4F49CB7D2C48F7890068C1E5 /* AIModel.swift */,
+				4FF648FF2C4B718A0024A611 /* AnimaitionButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 				DDAED0A92C46C67E00A7840F /* MainViewController.swift in Sources */,
 				4F49CB792C47F5A40068C1E5 /* AIView.swift in Sources */,
 				DDAED0BD2C46C7BE00A7840F /* MainView.swift in Sources */,
+				4FF649022C4B730C0024A611 /* AIMessageTableViewCell.swift in Sources */,
 				4F0234862C4A519F00BB08BA /* LoadingView.swift in Sources */,
 				DDAED0BF2C46C87F00A7840F /* AIViewController.swift in Sources */,
 				DDAED0A52C46C67E00A7840F /* AppDelegate.swift in Sources */,
@@ -210,6 +217,7 @@
 				DDAED0B92C46C72E00A7840F /* View.swift in Sources */,
 				DDAED0A72C46C67E00A7840F /* SceneDelegate.swift in Sources */,
 				DDAED0B72C46C72400A7840F /* Model.swift in Sources */,
+				4FF649002C4B718A0024A611 /* AnimaitionButton.swift in Sources */,
 				DDAED0C12C46CBCE00A7840F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
