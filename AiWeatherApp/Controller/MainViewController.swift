@@ -26,7 +26,13 @@ class MainViewController: UIViewController {
   }
   
   func getCurrentData() {
-    NetworkManager.shared.getCurrentData { weatherData in
+    guard let latitude = UserDefaults.standard.value(forKey: "latitude") as? Double,
+          let longitude = UserDefaults.standard.value(forKey: "longitude") as? Double else {
+      print("위도와 경도 값이 없습니다.")
+      return
+    }
+    
+    NetworkManager.shared.getCurrentData(latitude: latitude, longitude: longitude) { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
           self.mainView.weatherLabel.text = weatherData.weather.first!.description
@@ -57,9 +63,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier,
-                                                   for: indexPath) as? WeatherTableViewCell
-    else { return UITableViewCell() }
-    NetworkManager.shared.getWeekData { weatherData in
+                                                   for: indexPath) as? WeatherTableViewCell else {
+      return UITableViewCell()
+    }
+    
+    guard let latitude = UserDefaults.standard.value(forKey: "latitude") as? Double,
+          let longitude = UserDefaults.standard.value(forKey: "longitude") as? Double else {
+      print("위도와 경도 값이 없습니다.")
+      return cell
+    }
+    
+    NetworkManager.shared.getWeekData(latitude: latitude, longitude: longitude) { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
           cell.lowTemperature.text = "최저 " + changeFormat.shared.changeString(weatherData.list[indexPath.row].main.temp_min)! + "ºC"
@@ -70,7 +84,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         }
       }
     }
-    NetworkManager.shared.getIcon { weatherData in
+    NetworkManager.shared.getIcon(latitude: latitude, longitude: longitude) { weatherData in
       if let weatherData = weatherData {
         DispatchQueue.main.async {
           cell.weatherImage.image = weatherData

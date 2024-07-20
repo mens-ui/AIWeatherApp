@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  WeatherModel.swift
 //  AiWeatherApp
 //
 //  Created by 김윤홍 on 7/17/24.
@@ -44,6 +44,6 @@ struct Main: Codable {
 
 struct Data {
   var weatherArray: [[String]] = [[], [], [], []]
-  let lat = 37.56
-  let lon = 126.97
+//  let lat = 37.56
+//  let lon = 126.97
 }

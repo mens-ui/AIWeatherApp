@@ -42,15 +42,6 @@ class NotificationModel: NSObject, UNUserNotificationCenterDelegate {
         print("Notification scheduled for: hour: \(dateComponents.hour ?? 0) minute: \(dateComponents.minute ?? 0)")
         
         // 시간과 분 정보를 저장
-        UserDefaults.standard.setValue(true, forKey: "isNotificationOn")
-        UserDefaults.standard.setValue(dateComponents.hour, forKey: "notificationHour")
-        UserDefaults.standard.setValue(dateComponents.minute, forKey: "notificationMinute")
-        
-        // 사용자 시간대로 날짜를 문자열로 변환하여 저장
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = TimeZone.current
-        
         UserDefaults.standard.set(true, forKey: "isNotificationOn")
         UserDefaults.standard.set(dateComponents.hour, forKey: "notificationHour")
         UserDefaults.standard.set(dateComponents.minute, forKey: "notificationMinute")

@@ -29,6 +29,11 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     if let location = locations.first {
       let latitude = location.coordinate.latitude
       let longitude = location.coordinate.longitude
+      
+      // 위도와 경도 값을 UserDefaults에 저장
+      UserDefaults.standard.setValue(latitude, forKey: "latitude")
+      UserDefaults.standard.setValue(longitude, forKey: "longitude")
+      
       print("위도: \(latitude), 경도: \(longitude)")
     }
   }

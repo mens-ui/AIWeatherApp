@@ -13,9 +13,9 @@ class NetworkManager {
   static let shared = NetworkManager()
   let location = Data()
   
-  func getCurrentData(_ completion: @escaping (CurrentWeatherResult?) -> Void) {
+  func getCurrentData(latitude: Double, longitude: Double, _ completion: @escaping (CurrentWeatherResult?) -> Void) {
     guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_WEATHER_API_KEY") as? String else { return }
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.lat)&lon=\(location.lon)&units=metric&appid=\(apiKey)&lang=kr")!
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&units=metric&appid=\(apiKey)&lang=kr")!
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data, error == nil else {
@@ -33,9 +33,9 @@ class NetworkManager {
     task.resume()
   }
   
-  func getWeekData(_ completion: @escaping (WeekWeatherResult?) -> Void) {
+  func getWeekData(latitude: Double, longitude: Double, _ completion: @escaping (WeekWeatherResult?) -> Void) {
     guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_WEATHER_API_KEY") as? String else { return }
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(location.lat)&lon=\(location.lon)&units=metric&appid=\(apiKey)&lang=kr")!
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&units=metric&appid=\(apiKey)&lang=kr")!
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data, error == nil else {
@@ -53,8 +53,8 @@ class NetworkManager {
     task.resume()
   }
   
-  func getIcon(_ completion: @escaping (UIImage?) -> Void) {
-    getWeekData { weatherData in
+  func getIcon(latitude: Double, longitude: Double, _ completion: @escaping (UIImage?) -> Void) {
+    getWeekData(latitude: latitude, longitude: longitude) { weatherData in
       guard let weatherData = weatherData,
             let icon = weatherData.list.first?.weather.first?.icon,
             let imageUrl = URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png") else {
