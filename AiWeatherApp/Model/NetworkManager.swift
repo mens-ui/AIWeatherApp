@@ -12,7 +12,8 @@ class NetworkManager {
   static let shared = NetworkManager()
   
   func getCurrentData(_ completion: @escaping (CurrentWeatherResult?) -> Void) {
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=37.56&lon=125.97&units=metric&appid=cec8dc376cea68811d800a55218dbeed&lang=kr")!
+    guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_WEATHER_API_KEY") as? String else { return }
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=37.56&lon=125.97&units=metric&appid=\(apiKey)&lang=kr")!
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data, error == nil else {
@@ -31,7 +32,8 @@ class NetworkManager {
   }
   
   func getWeekData(_ completion: @escaping (WeekWeatherResult?) -> Void) {
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=37.56&lon=125.97&units=metric&appid=cec8dc376cea68811d800a55218dbeed&lang=kr")!
+    guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_WEATHER_API_KEY") as? String else { return }
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=37.56&lon=125.97&units=metric&appid=\(apiKey)&lang=kr")!
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data, error == nil else {
