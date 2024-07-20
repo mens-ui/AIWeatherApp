@@ -11,8 +11,6 @@ import SnapKit
 class AIMessageTableViewCell: UITableViewCell {
   let longlong2: UIImageView = {
     let imageView = UIImageView()
-    imageView.layer.borderColor = UIColor(.black).cgColor
-    imageView.layer.borderWidth = 1
     imageView.layer.cornerRadius = 12
     imageView.clipsToBounds = true
     return imageView
@@ -55,7 +53,10 @@ class AIMessageTableViewCell: UITableViewCell {
       $0.bottom.equalToSuperview().offset(-10)
     }
   }
-  func configureCell(aimessage: String) {
+  func configureCell(aimessage: String, imageName: String?) {
     message.text = aimessage
+    if let imageName = imageName {
+      longlong2.image = UIImage(named: imageName)
+    }
   }
 }
