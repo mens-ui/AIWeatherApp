@@ -32,4 +32,18 @@ class changeFormat {
     numberFormatter.numberStyle = .decimal
     return numberFormatter.string(from: NSNumber(value: value))
   }
+  
+  func formatDateToString(_ date: Date, format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = format
+      dateFormatter.timeZone = TimeZone.current
+      return dateFormatter.string(from: date)
+  }
+  
+  func formatTimeToString(_ date: Date, format: String = "HH시 mm분") -> String {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = format
+      dateFormatter.timeZone = TimeZone.current
+      return dateFormatter.string(from: date)
+  }
 }

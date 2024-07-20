@@ -46,15 +46,11 @@ class SettingController: UIViewController {
         NotificationModel.shared.scheduleNotification(at: selectedTime)
         
         // 설정한 시간 디버그 출력
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone.current
-        let timeString = dateFormatter.string(from: selectedTime)
+        let timeString = changeFormat.shared.formatDateToString(selectedTime)
         print("설정된 시간: \(timeString)")
         
         // 저장 확인 알림
-        dateFormatter.dateFormat = "HH시 mm분"
-        let confirmationTimeString = dateFormatter.string(from: selectedTime)
+        let confirmationTimeString = changeFormat.shared.formatTimeToString(selectedTime)
         let confirmationAlert = UIAlertController(title: nil, message: "매일 \(confirmationTimeString)에 알림이 설정되었습니다.", preferredStyle: .alert)
         confirmationAlert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
           // 페이지뷰 컨트롤러로 돌아가기
