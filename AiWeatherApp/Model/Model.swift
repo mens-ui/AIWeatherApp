@@ -44,7 +44,6 @@ struct Main: Codable {
 
 struct Data {
   var weatherArray: [[String]] = [[], [], [], []]
-  let myAPIKey = "cec8dc376cea68811d800a55218dbeed"
   let lat = 37.56
   let lon = 126.97
 }

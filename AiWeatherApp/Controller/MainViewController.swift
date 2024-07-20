@@ -41,15 +41,6 @@ class MainViewController: UIViewController {
     }
   }
   
-//  func getWeekData() {
-//    NetworkManager.shared.getWeekData { weatherData in
-//      if let weatherData = weatherData {
-//        DispatchQueue.main.async {
-//        }
-//      }
-//    }
-//  }
-  
   func setUpTableView() {
     mainView.weekWeather.dataSource = self
     mainView.weekWeather.delegate = self
