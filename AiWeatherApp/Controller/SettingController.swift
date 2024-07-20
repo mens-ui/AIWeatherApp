@@ -20,16 +20,6 @@ class SettingController: UIViewController {
     super.viewDidLoad()
     setupNavigationBar()
     
-    // 알림 권한 요청
-    NotificationModel.shared.requestAuthorization { granted in
-      if !granted {
-        print("알림 권한이 거부되었습니다.")
-      }
-    }
-    
-    // 위치 권한 요청
-    LocationModel.shared.requestAuthorization()
-    
     // Target 설정
     settingView.locationButton.addTarget(self, action: #selector(getLocation), for: .touchUpInside)
     

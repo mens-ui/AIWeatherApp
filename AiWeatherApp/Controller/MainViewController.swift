@@ -21,8 +21,22 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
+    
+    requestPermissions()
     getCurrentData()
     setUpTableView()
+  }
+  
+  func requestPermissions() {
+    // 알림 권한 요청
+    NotificationModel.shared.requestAuthorization { granted in
+      if !granted {
+        print("알림 권한이 거부되었습니다.")
+      }
+    }
+    
+    // 위치 권한 요청
+    LocationModel.shared.requestAuthorization()
   }
   
   func getCurrentData() {
