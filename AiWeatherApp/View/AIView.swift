@@ -21,20 +21,12 @@ class AIView: UIView {
     imageView.backgroundColor = .gray
     imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFill
-    imageView.layer.cornerRadius = 80
+    imageView.layer.cornerRadius = 64
     return imageView
   }()
-//  let textView: UITextView = {
-//    let textView = UITextView()
-//    textView.text = "오늘의 서울 날씨는 맑음 입니다. 어떤 것을 하고싶으신가요?"
-//    textView.layer.borderColor = UIColor.black.cgColor
-//    textView.layer.borderWidth = 1
-//    textView.layer.cornerRadius = 5
-//    return textView
-//  }()
-  let aiMessageTableView: UITableView = {
+
+  lazy var aiMessageTableView: UITableView = {
     let tableView = UITableView()
-    tableView.rowHeight = 60
     tableView.layer.borderColor = UIColor.black.cgColor
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 5

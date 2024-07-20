@@ -13,17 +13,18 @@ class AIMessageTableViewCell: UITableViewCell {
     let imageView = UIImageView()
     imageView.layer.borderColor = UIColor(.black).cgColor
     imageView.layer.borderWidth = 1
-    imageView.layer.cornerRadius = 25
+    imageView.layer.cornerRadius = 12
     imageView.clipsToBounds = true
     return imageView
   }()
   
-  let Message: UILabel = {
+  let message: UILabel = {
     let label = UILabel()
     label.text = ""
+    label.font = .systemFont(ofSize: 15)
+    label.numberOfLines = 0
     return label
   }()
-  
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,19 +39,23 @@ class AIMessageTableViewCell: UITableViewCell {
   private func configureUI() {
     [
       longlong2,
-      Message,
+      message,
     ].forEach { self.addSubview($0) }
   }
   private func setConstraints() {
     longlong2.snp.makeConstraints {
-      $0.centerY.equalTo(contentView)
-      $0.leading.equalTo(contentView).offset(10)
-      $0.width.height.equalTo(50)
+      $0.centerY.equalToSuperview()
+      $0.leading.equalToSuperview().offset(10)
+      $0.width.height.equalTo(30)
     }
-    Message.snp.makeConstraints {
-      $0.centerY.equalTo(contentView)
+    message.snp.makeConstraints {
       $0.leading.equalTo(longlong2.snp.trailing).offset(10)
+      $0.trailing.equalToSuperview().offset(-20)
+      $0.top.equalToSuperview().offset(10)
+      $0.bottom.equalToSuperview().offset(-10)
     }
-   
+  }
+  func configureCell(aimessage: String) {
+    message.text = aimessage
   }
 }
